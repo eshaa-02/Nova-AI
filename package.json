@@ -1,0 +1,32 @@
+{
+  "name": "nova-ai",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Nova AI — a premium unified AI workspace (chat, search, image, voice, video, music, tools).",
+  "workspaces": [
+    "apps/web",
+    "apps/api",
+    "packages/shared"
+  ],
+  "scripts": {
+    "predev": "npm run build:shared",
+    "dev": "concurrently -k -n API,WEB -c blue,magenta \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:frontend": "npm run dev --workspace apps/web",
+    "dev:backend": "npm run dev --workspace apps/api",
+    "build": "npm run build --workspace packages/shared && npm run build --workspace apps/api && npm run build --workspace apps/web",
+    "build:shared": "npm run build --workspace packages/shared",
+    "start:backend": "npm run start --workspace apps/api",
+    "start:frontend": "npm run start --workspace apps/web",
+    "lint": "npm run lint --workspace apps/web && npm run lint --workspace apps/api",
+    "test": "npm run test --workspace apps/api"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "dependencies": {
+    "zod": "^4.4.3"
+  }
+}
