@@ -1,6 +1,6 @@
-import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { createApp } from "../apps/api/src/app";
 import { connectDatabase } from "../apps/api/src/config/db";
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 let dbConnected = false;
 
