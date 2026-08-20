@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build --workspace apps/api",
+  "functions": {
+    "api/index.ts": {
+      "runtime": "@vercel/node@latest"
+    }
+  }
+}
