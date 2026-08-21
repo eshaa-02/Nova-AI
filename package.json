@@ -13,6 +13,7 @@
     "dev": "concurrently -k -n API,WEB -c blue,magenta \"npm run dev:backend\" \"npm run dev:frontend\"",
     "dev:frontend": "npm run dev --workspace apps/web",
     "dev:backend": "npm run dev --workspace apps/api",
+    "prebuild": "npm --prefix ../.. run build --workspace packages/shared",
     "build": "npm run build --workspace packages/shared && npm run build --workspace apps/api && npm run build --workspace apps/web",
     "build:shared": "npm run build --workspace packages/shared",
     "start:backend": "npm run start --workspace apps/api",
